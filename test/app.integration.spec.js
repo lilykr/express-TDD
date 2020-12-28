@@ -67,9 +67,8 @@ describe('Test routes', () => {
       request(app)
         .get('/bookmarks/1')
         .expect(200)
-        .expect('Content-Type', /json/)
         .then(response => {
-          const expected = { id: expect.any(Number), testBookmark };
+          const expected = { id: 1, url: 'https://nodejs.org/', title: 'Node.js' };
           expect(response.body).toEqual(expected);
           done();
         })
